@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FCB</title>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <img src="./img/logo (2).png" class="logo">
+                <nav>
+                    <ul id="menuList">
+                        <li>
+                            <a href="https://www.fcbarcelona.com/en/" target="_blank">FCB</a>
+                        </li>
+
+                        <li>
+                            <a href="#footerr">Contact me</a>
+                        </li>
+                    </ul>
+                </nav>
+                <i class='bx bxs-grid' onclick="togglemenu()"></i>
+
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <h2> FC Barça
+                        <br>Home shirt 23/24</h2>
+                    <h3>STADIUM COLLECTION</h3>
+                    <p>( XS / S / M )</p>
+                    <h4>99,99€</h4>
+                    <button type="button" id="BuyButton">Buy Now
+                        <img src="./img/arrow.png" alt=""></i>
+                </button>
+            </div>
+            <div class="col-2">
+                <img src="./img/bg00.png" alt="" class="jersey">
+                <div class="color-box"></div>
+                <div class="add-btn">
+                    <img src="./img/cart-icon.png" alt="" id="Imagee">
+                    <p id="addToCartBtn">
+                        <small class="add">Add to Cart</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer id="footerr">
+        <div class="social-links">
+           <a href="https://www.facebook.com/sahal.chungham.5" target="_blank"> <img src="./img/fb.png" alt=""></a>
+           <a href="https://twitter.com/FCBarcelona" target="_blank"> <img src="./img/tw.png" alt=""></a>
+           <a href="https://www.instagram.com/sahhhall/" target="_blank"> <img src="./img/ig.png" alt=""></a>
+        </div>
+     </footer>
+    </body>
+</html></div>
+        <script>
+        var menuList = document.getElementById("menuList")
+        menuList.style.maxHeight = "0px";
+        function togglemenu() {
+            if (menuList.style.maxHeight == "0px") {
+                menuList.style.maxHeight = "140px"
+            } else {
+                menuList.style.maxHeight = "0px"
+            }
+        }
+
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const Imagee = document.getElementById('Imagee');
+
+        addToCartBtn.addEventListener('click', () => {
+            addToCartBtn.innerHTML = '<small class="success-message">Added to Cart! </small>';
+            Imagee.style.opacity = '0';
+
+            setTimeout(() => { 
+                Imagee.src = './img/checkmark.png';
+            
+                Imagee.style.opacity = '1';
+                addToCartBtn.innerHTML = '<small class="success-message">Added to Cart! </small>';
+            }, 500);
+        });
+
+        Imagee.addEventListener('click', () => { // Fade out the image
+            Imagee.style.opacity = '0';
+
+            setTimeout(() => { // Change the image source
+                Imagee.src = './img/checkmark.png';
+                // Change to the desired new image URL
+
+                // Fade in the image and display the success message
+                Imagee.style.opacity = '1';
+                addToCartBtn.innerHTML = '<small class="success-message">Added to Cart! </small>';
+            }, 500); // Delay to match the transition duration
+        });
+
+            const BuyButton=document.getElementById('BuyButton')
+            const linkUrl="https://store.fcbarcelona.com/products/fc-barcelona-home-shirt-23-24?competition=liga";
+            BuyButton.addEventListener('click',()=>{
+                window.location.href=linkUrl;
+            })
+        </script>
+</body>
+ </html>
